@@ -10,7 +10,7 @@ ChatGPT Prompt Library is a versatile collection of prompts designed to enhance 
 4. Save the script.
 
 ## Usage
-After installing the script, navigate to [ChatGPT](https://chat.openai.com). You will see a new button "Prompt Library" in the menu. Click on it to see the available prompts and select one to use.
+After installing the script, navigate to [ChatGPT](https://chat.openai.com). You will see a new button `Prompt Library` in the menu. Click on it to see the available prompts and select one to use.
 
 ## Available Prompts
 - SearchEngine: ChatGPT functions as a search engine, providing official and reputable website links.
