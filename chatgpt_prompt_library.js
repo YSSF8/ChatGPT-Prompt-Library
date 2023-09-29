@@ -4,6 +4,7 @@
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
+// @icon         https://raw.githubusercontent.com/YSSF8/ChatGPT-Prompt-Library/main/icon.png
 // @grant        GM_addStyle
 // ==/UserScript==
 
