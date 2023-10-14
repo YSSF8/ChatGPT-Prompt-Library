@@ -24,6 +24,9 @@ After installing the script, navigate to [ChatGPT](https://chat.openai.com). You
 - ColorGenerator: ChatGPT will assist you in choosing optimal color palettes for your designs, websites, apps, and more.
 - AcronymGPT: Enhances ChatGPT to interpret or generate acronyms or abbreviations based on the provided context.
 - FeelingsMode: Elicits emotional responses in ChatGPT.
+- DictionaryGPT: Transforms ChatGPT into a dictionary
+- ChatIMG: Empowers ChatGPT with the capability to send images through the chat interface
+- JokerGPT: Enhances the comedic efficacy of ChatGPT
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
