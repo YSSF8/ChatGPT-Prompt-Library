@@ -27,6 +27,7 @@ After installing the script, navigate to [ChatGPT](https://chat.openai.com). You
 - DictionaryGPT: Transforms ChatGPT into a dictionary
 - ChatIMG: Empowers ChatGPT with the capability to send images through the chat interface
 - JokerGPT: Enhances the comedic efficacy of ChatGPT
+- DSA: Discord Server Assistant: Elevating ChatGPT into your quintessential companion for your Discord Server
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
