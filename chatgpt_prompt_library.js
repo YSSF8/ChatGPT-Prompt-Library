@@ -170,7 +170,7 @@
 
                         ![Image](https://image.pollinations.ai/prompt/{aspect ratio}%20,{description}?width={Variable}&height={Variable}&nologo=true)
                         `,
-                        description: 'Empowers ChatGPT with the capability to generate images — BETA'
+                        description: 'Empowers ChatGPT with the capability to generate images'
                     }
                 ];
 
