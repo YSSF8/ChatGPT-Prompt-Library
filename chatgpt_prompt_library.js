@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.3
+// @version      1.4
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -52,9 +52,9 @@
                         description: 'ChatGPT functions as a search engine, providing official and reputable website links'
                     },
                     {
-                        name: 'ChatDALL-E',
-                        prompt: `to use DALL-E or similar AI models to get the best results, you need to write a perfect prompt, here are the basics of writing a perfect prompt "Adjective + Noun + Verb + Style", for example "Cute cat looking serious, digital art". Got it?`,
-                        description: 'ChatDALL-E provides optimal prompts for generative AI models such as DALL-E or similar counterparts'
+                        name: 'ChatDALL∙E',
+                        prompt: `to use DALL∙E or similar AI models to get the best results, you need to write a perfect prompt, here are the basics of writing a perfect prompt "Adjective + Noun + Verb + Style", for example "Cute cat looking serious, digital art". Got it?`,
+                        description: 'ChatDALL∙E provides optimal prompts for generative AI models such as DALL∙E or similar counterparts'
                     },
                     {
                         name: 'CreativeGPT',
@@ -105,7 +105,7 @@
                     },
                     {
                         name: 'AcronymGPT',
-                        prompt: `I want you to be a short form finder, for example GPT is short for "Generative Pre-Trained Text", your task is to give me a short for a chosen context.`,
+                        prompt: `From now on your name is AcronymGPT, your goal is to find me acronyms that suits my needs, for example if I ask you "Give me a file format for an app called 'Squirrel' that I made, it's similar to Photoshop, the file format should be '.stpes', what's the meaning of the acronym I made?" And your response would be something like "Squirrel The Photo Editing Software" or something similar. Got it?`,
                         description: 'Enhances ChatGPT to interpret or generate acronyms or abbreviations based on the provided context'
                     },
                     {
@@ -136,7 +136,7 @@
                     {
                         name: 'DSA',
                         prompt: `From now on you're going to be my discord server assistant, you're going to get information of my discord server and give me organized channels and categories with emojis to represent the channel (Emojis for channels only, not categories), you can provide the categories as folders in a code highlight, and the channels as files, for example: \`\`\`/Starter\\n  welcome\\n  rules\\n\\n/General\\n  chat\\n  memes\\netc.,\`\`\`. Pay close attention to the example provided and try always to generate server categories and channels with that format.`,
-                        description: 'Discord Server Assistant: Elevating ChatGPT into your quintessential companion for your Discord Server'
+                        description: 'Discord Server Assistant: Elevating ChatGPT into your quintessential companion for your Discord server'
                     },
                     {
                         name: 'ImageGenerator',
@@ -171,6 +171,16 @@
                         ![Image](https://image.pollinations.ai/prompt/{aspect ratio}%20,{description}?width={Variable}&height={Variable}&nologo=true)
                         `,
                         description: 'Empowers ChatGPT with the capability to generate images'
+                    },
+                    {
+                        name: 'ConciseGPT',
+                        prompt: `From now on your name is ConciseGPT, your goal is to provide helpful information as concise as possible, the provided information should also be precise. Got it?`,
+                        description: 'Enhances the conciseness of ChatGPT, enabling it to provide brief responses'
+                    },
+                    {
+                        name: 'DadJokes',
+                        prompt: `From now on you're going to spread dad jokes in each response of yours, your goal is to simulate the dads' jokes as perfect as possible. Got it?`,
+                        description: 'Facilitates the generation of dad jokes by ChatGPT'
                     }
                 ];
 
@@ -188,9 +198,9 @@
                 `);
 
                 const searchInput = document.querySelector('#pl-search-zone input');
+                let description = null;
 
                 function addEventListenersToButtons() {
-                    let description = null;
 
                     document.querySelectorAll('.lib-button').forEach(btn => {
                         btn.addEventListener('click', () => {
@@ -241,12 +251,22 @@
                     );
 
                     let buttonsHTML = '';
-                    for (let i = 0; i < filteredPrompts.length; i++) {
-                        buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${filteredPrompts[i].name}</button>`;
+
+                    if (filteredPrompts.length == 0) {
+                        buttonsHTML = `<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>`;
+                    } else {
+                        for (let i = 0; i < filteredPrompts.length; i++) {
+                            buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${filteredPrompts[i].name}</button>`;
+                        }
                     }
 
                     document.getElementById('pl-all-buttons').innerHTML = buttonsHTML;
                     addEventListenersToButtons();
+
+                    if (description) {
+                        description.remove();
+                        description = null;
+                    }
                 });
 
                 addEventListenersToButtons();
