@@ -14,7 +14,7 @@ After installing the script, navigate to [ChatGPT](https://chat.openai.com). You
 
 ## Available Prompts
 - SearchEngine: ChatGPT functions as a search engine, providing official and reputable website links.
-- ChatDALL-E: Provides optimal prompts for generative AI models such as DALL-E or similar counterparts.
+- ChatDALL∙E: Provides optimal prompts for generative AI models such as DALL∙E or similar counterparts.
 - CreativeGPT: ChatGPT will endeavor to provide the utmost creativity in its responses.
 - DecisionBot: Empowers ChatGPT with the capability to assist you in the process of making informed decisions.
 - GigaGPT: Turns ChatGPT into a GigaChad.
