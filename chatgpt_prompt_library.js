@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.4
+// @version      1.5
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -13,7 +13,7 @@
     'use strict';
 
     setTimeout(() => {
-        const menuBtn = document.querySelector('#headlessui-menu-button-\\:rb\\:');
+        const menuBtn = document.querySelector('button[data-headlessui-state]');
         menuBtn.addEventListener('click', () => {
             const library = document.createElement('a');
             library.as = 'button';
@@ -37,8 +37,8 @@
             `;
             setTimeout(() => {
                 try {
-                    const menuList = document.querySelector('[aria-labelledby="headlessui-menu-button-:rb:"] nav');
-                    menuList.insertBefore(library, menuList.firstElementChild);
+                    const menu = document.querySelector('[aria-labelledby="headlessui-menu-button-:r5:"]');
+                    menu.insertBefore(library, menu.firstElementChild);
                 } catch {
                     return;
                 }
@@ -53,7 +53,7 @@
                     },
                     {
                         name: 'ChatDALL∙E',
-                        prompt: `to use DALL∙E or similar AI models to get the best results, you need to write a perfect prompt, here are the basics of writing a perfect prompt "Adjective + Noun + Verb + Style", for example "Cute cat looking serious, digital art". Got it?`,
+                        prompt: `To use DALL∙E or similar AI models to get the best results, you need to write a perfect prompt, here are the basics of writing a perfect prompt "Adjective + Noun + Verb + Style", for example "Cute cat looking serious, digital art", you'll help me by brainstorming a perfect prompt from scratch, or improving the prompt I gave you, or anything related. Got it?`,
                         description: 'ChatDALL∙E provides optimal prompts for generative AI models such as DALL∙E or similar counterparts'
                     },
                     {
@@ -181,6 +181,11 @@
                         name: 'DadJokes',
                         prompt: `From now on you're going to spread dad jokes in each response of yours, your goal is to simulate the dads' jokes as perfect as possible. Got it?`,
                         description: 'Facilitates the generation of dad jokes by ChatGPT'
+                    },
+                    {
+                        name: 'OneGPT',
+                        prompt: `From now on you're called "OneGPT", your goal is to provide an answer with one word only, for instance, if the request is "What's your name?", the response would be "OneGPT", or "Who's the CEO of Microsoft?", the response would be "Satya". Got it?`,
+                        description: 'ChatGPT will respond to your inquiries with utmost brevity'
                     }
                 ];
 
@@ -253,7 +258,7 @@
                     let buttonsHTML = '';
 
                     if (filteredPrompts.length == 0) {
-                        buttonsHTML = `<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>`;
+                        buttonsHTML = '<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>';
                     } else {
                         for (let i = 0; i < filteredPrompts.length; i++) {
                             buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${filteredPrompts[i].name}</button>`;
