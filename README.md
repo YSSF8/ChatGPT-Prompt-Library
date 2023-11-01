@@ -28,9 +28,10 @@ After installing the script, navigate to [ChatGPT](https://chat.openai.com). You
 - ChatIMG: Empowers ChatGPT with the capability to send images through the chat interface.
 - JokerGPT: Enhances the comedic efficacy of ChatGPT.
 - DSA: Discord Server Assistant: Elevating ChatGPT into your quintessential companion for your Discord Server.
-- ImageGenerator: Empowers ChatGPT with the capability to generate images
+- ImageGenerator: Empowers ChatGPT with the capability to generate images.
 - ConciseGPT: Enhances the conciseness of ChatGPT, enabling it to provide brief responses.
 - DadJokes: Facilitates the generation of dad jokes by ChatGPT.
+- OneGPT: ChatGPT will respond to your inquiries with utmost brevity.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
