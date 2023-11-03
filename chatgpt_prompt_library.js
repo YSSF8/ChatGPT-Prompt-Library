@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.5
+// @version      1.6
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -37,7 +37,7 @@
             `;
             setTimeout(() => {
                 try {
-                    const menu = document.querySelector('[aria-labelledby="headlessui-menu-button-:r5:"]');
+                    const menu = document.querySelector('.pb-1\\.5');
                     menu.insertBefore(library, menu.firstElementChild);
                 } catch {
                     return;
@@ -229,7 +229,7 @@
                             btn.addEventListener('mousemove', e => {
                                 if (!description) {
                                     description = document.createElement('div');
-                                    description.classList.add('lib-desc');
+                                    description.classList.add('lib-desc', 'btn-neutral');
                                     document.body.appendChild(description);
                                 }
 
@@ -319,28 +319,31 @@
         }
     }, 2000);
 
+    let cssVars = {
+        primaryNumber: '8px',
+        secondaryNumber: '5px'
+    }
+
     GM_addStyle(`
     .lib-desc {
-        background-color: rgba(42, 43, 55, .6);
-        backdrop-filter: blur(8px);
         position: absolute;
-        padding: 8px;
-        border-radius: 8px;
-        border: 1px solid rgb(86, 88, 105);
         pointer-events: none;
+        border-radius: ${cssVars.primaryNumber};
+        padding: ${cssVars.primaryNumber};
+        box-shadow: 0 0 ${cssVars.secondaryNumber} ${-parseInt(cssVars.secondaryNumber) + 4}px #000;
     }
     #pl-version {
         background-color: #fce7a4;
-        border-radius: 5px;
-        padding: 3px;
+        border-radius: ${cssVars.secondaryNumber};
+        padding: ${parseInt(cssVars.secondaryNumber) - 2}px;
         color: #997723;
         font-size: 11px;
     }
     #pl-search-zone input {
-        margin-bottom: 8px;
-        padding: 8px;
+        margin-bottom: ${cssVars.primaryNumber};
+        padding: ${cssVars.primaryNumber};
         border: 1px solid rgb(217, 217, 227);
-        border-radius: 5px;
+        border-radius: ${cssVars.secondaryNumber};
         width: 100%;
     }
     #pl-search-zone input:focus {
