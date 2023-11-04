@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.7
+// @version      1.8
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -199,9 +199,13 @@
                 <div id="pl-search-zone">
                     <input type="text" placeholder="Search" class="m-0 w-full resize-none border-0 bg-transparent p-0 pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:pr-12 pl-3 md:pl-0">
                     <button class="btn relative btn-neutral pl-filter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md">
-                            <path d="M11.6439 3C10.9352 3 10.2794 3.37508 9.92002 3.98596L9.49644 4.70605C8.96184 5.61487 7.98938 6.17632 6.93501 6.18489L6.09967 6.19168C5.39096 6.19744 4.73823 6.57783 4.38386 7.19161L4.02776 7.80841C3.67339 8.42219 3.67032 9.17767 4.01969 9.7943L4.43151 10.5212C4.95127 11.4386 4.95127 12.5615 4.43151 13.4788L4.01969 14.2057C3.67032 14.8224 3.67339 15.5778 4.02776 16.1916L4.38386 16.8084C4.73823 17.4222 5.39096 17.8026 6.09966 17.8083L6.93502 17.8151C7.98939 17.8237 8.96185 18.3851 9.49645 19.294L9.92002 20.014C10.2794 20.6249 10.9352 21 11.6439 21H12.3561C13.0648 21 13.7206 20.6249 14.08 20.014L14.5035 19.294C15.0381 18.3851 16.0106 17.8237 17.065 17.8151L17.9004 17.8083C18.6091 17.8026 19.2618 17.4222 19.6162 16.8084L19.9723 16.1916C20.3267 15.5778 20.3298 14.8224 19.9804 14.2057L19.5686 13.4788C19.0488 12.5615 19.0488 11.4386 19.5686 10.5212L19.9804 9.7943C20.3298 9.17767 20.3267 8.42219 19.9723 7.80841L19.6162 7.19161C19.2618 6.57783 18.6091 6.19744 17.9004 6.19168L17.065 6.18489C16.0106 6.17632 15.0382 5.61487 14.5036 4.70605L14.08 3.98596C13.7206 3.37508 13.0648 3 12.3561 3H11.6439Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                            <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="2"></circle>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" version="1.1" viewBox="0.00 0.00 512.00 512.00" class="icon-md">
+                            <path fill="currentColor" d="   M 234.28 106.69   L 21.72 106.69   A 0.41 0.41 0.0 0 1 21.31 106.28   L 21.31 64.41   A 0.41 0.41 0.0 0 1 21.72 64.00   L 234.28 64.00   A 0.41 0.41 0.0 0 0 234.69 63.59   L 234.69 21.72   A 0.41 0.41 0.0 0 1 235.10 21.31   L 276.90 21.31   A 0.41 0.41 0.0 0 1 277.31 21.72   L 277.31 148.90   A 0.41 0.41 0.0 0 1 276.90 149.31   L 235.10 149.31   A 0.41 0.41 0.0 0 1 234.69 148.90   L 234.69 107.10   A 0.41 0.41 0.0 0 0 234.28 106.69   Z"/>
+                            <path fill="currentColor" d="   M 320.54 64.00   L 490.15 64.00   A 0.54 0.54 0.0 0 1 490.69 64.54   L 490.69 106.15   A 0.54 0.54 0.0 0 1 490.15 106.69   L 320.54 106.69   A 0.54 0.54 0.0 0 1 320.00 106.15   L 320.00 64.54   A 0.54 0.54 0.0 0 1 320.54 64.00   Z"/>
+                            <path fill="currentColor" d="   M 84.82 277.31   L 21.79 277.31   A 0.49 0.49 0.0 0 1 21.30 276.82   L 21.33 235.19   A 0.49 0.49 0.0 0 1 21.82 234.70   L 84.81 234.68   A 0.49 0.49 0.0 0 0 85.30 234.19   L 85.31 192.49   A 0.49 0.49 0.0 0 1 85.80 192.00   L 127.51 192.00   A 0.49 0.49 0.0 0 1 128.00 192.49   L 128.00 319.51   A 0.49 0.49 0.0 0 1 127.51 320.00   L 85.79 320.00   A 0.49 0.49 0.0 0 1 85.30 319.51   L 85.31 277.80   A 0.49 0.49 0.0 0 0 84.82 277.31   Z"/>
+                            <rect fill="currentColor" x="170.69" y="234.69" width="320.00" height="42.62" rx="0.47"/>
+                            <path fill="currentColor" d="   M 384.00 448.48   L 384.00 490.21   A 0.48 0.48 0.0 0 1 383.52 490.69   L 341.78 490.69   A 0.48 0.48 0.0 0 1 341.30 490.21   L 341.31 363.20   A 0.48 0.48 0.0 0 1 341.79 362.72   L 383.52 362.68   A 0.48 0.48 0.0 0 1 384.00 363.16   L 384.00 404.83   A 0.48 0.48 0.0 0 0 384.48 405.31   L 490.21 405.31   A 0.48 0.48 0.0 0 1 490.69 405.79   L 490.69 447.52   A 0.48 0.48 0.0 0 1 490.21 448.00   L 384.48 448.00   A 0.48 0.48 0.0 0 0 384.00 448.48   Z"/>
+                            <rect fill="currentColor" x="21.31" y="405.30" width="277.38" height="42.70" rx="0.43"/>
                         </svg>
                     </button>
                 </div>
@@ -210,9 +214,9 @@
 
                 const searchInput = document.querySelector('#pl-search-zone input');
                 let description = null;
+                let searchValue;
 
                 function addEventListenersToButtons() {
-
                     document.querySelectorAll('.lib-button').forEach(btn => {
                         btn.addEventListener('click', () => {
                             if (description) {
@@ -239,7 +243,11 @@
                                     document.body.appendChild(description);
                                 }
 
-                                description.innerText = btn.getAttribute('data-desc');
+                                let desc = btn.getAttribute('data-desc');
+                                if (filterLog.descriptionSearch) {
+                                    desc = desc.replace(new RegExp(searchValue, `g${filterLog.matchCase ? '' : 'i'}`), match => `<mark>${match}</mark>`);
+                                }
+                                description.innerHTML = desc;
                                 description.style.left = `${e.clientX}px`;
                                 description.style.top = `${e.clientY - description.offsetHeight}px`;
                             });
@@ -255,32 +263,29 @@
                 }
 
                 searchInput.addEventListener('input', () => {
-                    let searchValue = filterLog.matchCase ? searchInput.value : searchInput.value.toLowerCase();
+                    searchValue = filterLog.matchCase ? searchInput.value : searchInput.value.toLowerCase();
                     let filteredPrompts;
                     let buttonsHTML = '';
 
                     try {
-                        if (filterLog.matchRegex) {
-                            filteredPrompts = prompts.filter(prompt => {
-                                let promptName = filterLog.matchCase ? prompt.name : prompt.name.toLowerCase();
-                                let promptDescription = filterLog.matchCase ? prompt.description : prompt.description.toLowerCase();
-                                return new RegExp(searchValue, 'gi').test(promptName) ||
-                                filterLog.descriptionSearch ? new RegExp(searchValue, 'gi').test(promptDescription) : false
-                            });
-                        } else {
-                            filteredPrompts = prompts.filter(prompt => {
-                                let promptName = filterLog.matchCase ? prompt.name : prompt.name.toLowerCase();
-                                let promptDescription = filterLog.matchCase ? prompt.description : prompt.description.toLowerCase();
-                                return promptName.includes(searchValue) ||
-                                filterLog.descriptionSearch ? promptDescription.includes(searchValue) : false
-                            });
-                        }
+                        filteredPrompts = prompts.filter(prompt => {
+                            let promptName = filterLog.matchCase ? prompt.name : prompt.name.toLowerCase();
+                            let promptDescription = filterLog.matchCase ? prompt.description : prompt.description.toLowerCase();
+
+                            if (filterLog.matchRegex) {
+                                let regex = new RegExp(searchValue, `g${filterLog.matchCase ? '' : 'i'}`);
+                                return regex.test(promptName) || (filterLog.descriptionSearch && regex.test(promptDescription));
+                            } else {
+                                return promptName.includes(searchValue) || (filterLog.descriptionSearch && promptDescription.includes(searchValue));
+                            }
+                        });
 
                         if (filteredPrompts.length == 0) {
                             buttonsHTML = '<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>';
                         } else {
                             for (let i = 0; i < filteredPrompts.length; i++) {
-                                buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${filteredPrompts[i].name}</button>`;
+                                let highlightedName = filteredPrompts[i].name.replace(new RegExp(searchValue, 'gi'), match => `<mark>${match}</mark>`);
+                                buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${highlightedName}</button>`;
                             }
                         }
                     } catch (error) {
