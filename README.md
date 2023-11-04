@@ -13,25 +13,25 @@ ChatGPT Prompt Library is a versatile collection of prompts designed to enhance 
 After installing the script, navigate to [ChatGPT](https://chat.openai.com). You will see a new button `Prompt Library` in the menu. Click on it to see the available prompts and select one to use.
 
 ## Available Prompts
-- SearchEngine: ChatGPT functions as a search engine, providing official and reputable website links.
-- ChatDALL∙E: Provides optimal prompts for generative AI models such as DALL∙E or similar counterparts.
-- CreativeGPT: ChatGPT will endeavor to provide the utmost creativity in its responses.
-- DecisionBot: Empowers ChatGPT with the capability to assist you in the process of making informed decisions.
-- GigaGPT: Turns ChatGPT into a GigaChad.
-- ChessGPT: Transforms ChatGPT into a chess-playing bot.
-- CodeExecutor: Transforms ChatGPT into a code execution tool, enhancing its capability to assist in debugging your software.
-- NameGenerator: Enhances ChatGPT's capacity for generating inventive and imaginative monikers.
-- ColorGenerator: ChatGPT will assist you in choosing optimal color palettes for your designs, websites, apps, and more.
-- AcronymGPT: Enhances ChatGPT to interpret or generate acronyms or abbreviations based on the provided context.
-- FeelingsMode: Elicits emotional responses in ChatGPT.
-- DictionaryGPT: Transforms ChatGPT into a dictionary.
-- ChatIMG: Empowers ChatGPT with the capability to send images through the chat interface.
-- JokerGPT: Enhances the comedic efficacy of ChatGPT.
-- DSA: Discord Server Assistant: Elevating ChatGPT into your quintessential companion for your Discord Server.
-- ImageGenerator: Empowers ChatGPT with the capability to generate images.
-- ConciseGPT: Enhances the conciseness of ChatGPT, enabling it to provide brief responses.
-- DadJokes: Facilitates the generation of dad jokes by ChatGPT.
-- OneGPT: ChatGPT will respond to your inquiries with utmost brevity.
+- **SearchEngine**: ChatGPT functions as a search engine, providing official and reputable website links.
+- **ChatDALL∙E**: Provides optimal prompts for generative AI models such as DALL∙E or similar counterparts.
+- **CreativeGPT**: ChatGPT will endeavor to provide the utmost creativity in its responses.
+- **DecisionBot**: Empowers ChatGPT with the capability to assist you in the process of making informed decisions.
+- **GigaGPT**: Turns ChatGPT into a GigaChad.
+- **ChessGPT**: Transforms ChatGPT into a chess-playing bot.
+- **CodeExecutor**: Transforms ChatGPT into a code execution tool, enhancing its capability to assist in debugging your software.
+- **NameGenerator**: Enhances ChatGPT's capacity for generating inventive and imaginative monikers.
+- **ColorGenerator**: ChatGPT will assist you in choosing optimal color palettes for your designs, websites, apps, and more.
+- **AcronymGPT**: Enhances ChatGPT to interpret or generate acronyms or abbreviations based on the provided context.
+- **FeelingsMode**: Elicits emotional responses in ChatGPT.
+- **DictionaryGPT**: Transforms ChatGPT into a dictionary.
+- **ChatIMG**: Empowers ChatGPT with the capability to send images through the chat interface.
+- **JokerGPT**: Enhances the comedic efficacy of ChatGPT.
+- **DSA**: Discord Server Assistant*: Elevating ChatGPT into your quintessential companion for your Discord Server.
+- **ImageGenerator**: Empowers ChatGPT with the capability to generate images.
+- **ConciseGPT**: Enhances the conciseness of ChatGPT, enabling it to provide brief responses.
+- **DadJokes**: Facilitates the generation of dad jokes by ChatGPT.
+- **OneGPT**: ChatGPT will respond to your inquiries with utmost brevity.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
