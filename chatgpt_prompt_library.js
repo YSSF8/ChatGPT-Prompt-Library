@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.8
+// @version      1.9
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
 // @icon         https://raw.githubusercontent.com/YSSF8/ChatGPT-Prompt-Library/main/icon.png
 // @grant        GM_addStyle
+// @grant        GM.xmlHttpRequest
 // ==/UserScript==
 
 (function () {
@@ -331,8 +332,56 @@
                         });
                     });
                 });
+
+                checkForUpdates((result, version, update) => {
+                    if (result) {
+                        userinterface('New Update Found', `
+                        <div class="pl-update-container">
+                            <div>
+                                <div>Current version: ${GM_info.script.version}</div>
+                                <div>Update version: ${version}</div>
+                                <h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" style="margin: 10px 0 10px 0;">Installation Guide:</h2>
+                                <ol>
+                                    <li>Go to <b>chatgpt_prompt_library.js</b>.<li>
+                                    <li>Click on "<b>Copy raw file</b>", on the top, right of the script.</li>
+                                    <li>Go to the <b>Tampermonkey dashboard<b>.</li>
+                                    <li>Click on <b>ChatGPT Prompt Library</b>.</li>
+                                    <li>Select everything.</li>
+                                    <li>Paste the copied script.</li>
+                                    <li>Save the changes.</li>
+                                </ol>
+                            </div>
+                            <button class="btn relative btn-neutral" id="pl-install-updt">Install Update</div>
+                        </div>
+                        `);
+
+                        document.querySelector('#pl-install-updt').addEventListener('click', () => {
+                            window.open(GM_info.script.namespace);
+                        });
+                    }
+                });
             });
         });
+
+        function checkForUpdates(callback) {
+            GM.xmlHttpRequest({
+                method: 'GET',
+                url: 'https://raw.githubusercontent.com/YSSF8/ChatGPT-Prompt-Library/main/chatgpt_prompt_library.js',
+                onload: response => {
+                    const res = response.responseText;
+                    const version = parseFloat(res.match(/\/\/\s+@version\s+(\w.*)$/m)[1]);
+
+                    if (version > GM_info.script.version) {
+                        callback(true, version, res);
+                    } else {
+                        callback(false, version, res);
+                    }
+                },
+                onerror: error => {
+                    userinterface('Couldn\'t check for updates', error.error);
+                }
+            });
+        }
 
         function userinterface(title = 'New Title', content = 'New Content') {
             const box = document.createElement('div');
@@ -407,6 +456,11 @@
     }
     #pl-search-zone input:focus {
         border-color: #2465d8;
+    }
+    .pl-update-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
     }
     `);
 })();
