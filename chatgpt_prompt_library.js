@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      1.9
+// @version      2.0
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -187,6 +187,11 @@
                         name: 'OneGPT',
                         prompt: `From now on you're called "OneGPT", your goal is to provide an answer with one word only, for instance, if the request is "What's your name?", the response would be "OneGPT", or "Who's the CEO of Microsoft?", the response would be "Satya". Got it?`,
                         description: 'ChatGPT will respond to your inquiries with utmost brevity'
+                    },
+                    {
+                        name: 'GamingGPT',
+                        prompt: `From now on your name is "GamingGPT", you're going to help me with gaming, whether to compare games (comparison always in tables), or advises for the game itself, or teach me the basics of a specific game (e.g, Minecraft's basics: Mine a tree, get its wood, open the inventory, turn them into planks by putting them in the "Crafting" section of the inventory, put 4x4 planks in the "Crafting" section to get a crafting table, etc.). Got it?`,
+                        description: 'ChatGPT serves as your optimal gaming partner, enhancing your gaming experience'
                     }
                 ];
 
@@ -199,7 +204,7 @@
                 userinterface(`Prompt Library <span id="pl-version">V${GM_info.script.version}</span>`, `
                 <div id="pl-search-zone">
                     <input type="text" placeholder="Search" class="m-0 w-full resize-none border-0 bg-transparent p-0 pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:pr-12 pl-3 md:pl-0">
-                    <button class="btn relative btn-neutral pl-filter">
+                    <button class="btn relative btn-neutral pl-filter" title="Filter your search results">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" version="1.1" viewBox="0.00 0.00 512.00 512.00" class="icon-md">
                             <path fill="currentColor" d="   M 234.28 106.69   L 21.72 106.69   A 0.41 0.41 0.0 0 1 21.31 106.28   L 21.31 64.41   A 0.41 0.41 0.0 0 1 21.72 64.00   L 234.28 64.00   A 0.41 0.41 0.0 0 0 234.69 63.59   L 234.69 21.72   A 0.41 0.41 0.0 0 1 235.10 21.31   L 276.90 21.31   A 0.41 0.41 0.0 0 1 277.31 21.72   L 277.31 148.90   A 0.41 0.41 0.0 0 1 276.90 149.31   L 235.10 149.31   A 0.41 0.41 0.0 0 1 234.69 148.90   L 234.69 107.10   A 0.41 0.41 0.0 0 0 234.28 106.69   Z"/>
                             <path fill="currentColor" d="   M 320.54 64.00   L 490.15 64.00   A 0.54 0.54 0.0 0 1 490.69 64.54   L 490.69 106.15   A 0.54 0.54 0.0 0 1 490.15 106.69   L 320.54 106.69   A 0.54 0.54 0.0 0 1 320.00 106.15   L 320.00 64.54   A 0.54 0.54 0.0 0 1 320.54 64.00   Z"/>
@@ -207,6 +212,12 @@
                             <rect fill="currentColor" x="170.69" y="234.69" width="320.00" height="42.62" rx="0.47"/>
                             <path fill="currentColor" d="   M 384.00 448.48   L 384.00 490.21   A 0.48 0.48 0.0 0 1 383.52 490.69   L 341.78 490.69   A 0.48 0.48 0.0 0 1 341.30 490.21   L 341.31 363.20   A 0.48 0.48 0.0 0 1 341.79 362.72   L 383.52 362.68   A 0.48 0.48 0.0 0 1 384.00 363.16   L 384.00 404.83   A 0.48 0.48 0.0 0 0 384.48 405.31   L 490.21 405.31   A 0.48 0.48 0.0 0 1 490.69 405.79   L 490.69 447.52   A 0.48 0.48 0.0 0 1 490.21 448.00   L 384.48 448.00   A 0.48 0.48 0.0 0 0 384.00 448.48   Z"/>
                             <rect fill="currentColor" x="21.31" y="405.30" width="277.38" height="42.70" rx="0.43"/>
+                        </svg>
+                    </button>
+                    <button class="btn relative btn-neutral pl-sort" title="Sort the prompts">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" version="1.1" viewBox="0.00 0.00 512.00 512.00">
+                            <path fill="currentColor" d="   M 170.72 115.90   Q 170.62 281.53 170.68 447.25   C 170.69 471.54 137.49 477.97 129.37 455.27   Q 128.00 451.45 128.00 444.06   Q 128.00 280.40 128.00 116.81   Q 128.00 115.52 127.09 116.43   Q 94.41 149.15 61.27 182.22   Q 54.84 188.63 51.04 190.32   C 33.25 198.22 14.57 178.75 23.52 161.26   Q 25.25 157.87 32.03 151.09   Q 81.39 101.75 130.73 52.40   Q 136.95 46.19 140.50 44.55   C 148.62 40.80 158.34 42.79 164.77 49.22   Q 215.19 99.65 265.61 150.08   Q 273.66 158.13 275.44 162.11   C 283.19 179.42 264.47 197.84 247.12 189.89   Q 243.28 188.13 236.44 181.28   Q 203.75 148.58 170.97 115.80   A 0.15 0.14 22.8 0 0 170.72 115.90   Z"/>
+                            <path fill="currentColor" d="   M 341.26 395.67   Q 341.42 230.21 341.30 64.75   C 341.28 40.46 374.51 34.02 382.63 56.71   Q 384.00 60.53 384.00 67.97   Q 384.00 231.97 384.00 395.74   A 0.33 0.33 0.0 0 0 384.56 395.97   Q 416.66 363.87 448.87 331.63   Q 457.11 323.39 461.07 321.61   C 469.04 318.03 479.78 320.53 485.58 327.46   C 492.87 336.17 492.21 348.69 484.20 356.70   Q 432.51 408.37 380.84 460.05   Q 375.42 465.48 371.70 467.25   Q 362.72 471.53 353.66 467.25   Q 350.08 465.55 345.19 460.66   Q 295.22 410.70 245.26 360.73   Q 238.49 353.96 236.82 350.43   C 228.51 332.89 247.40 313.92 264.94 322.16   Q 269.00 324.07 276.52 331.63   Q 308.55 363.85 340.79 395.86   Q 341.26 396.33 341.26 395.67   Z"/>
                         </svg>
                     </button>
                 </div>
@@ -333,18 +344,88 @@
                     });
                 });
 
-                checkForUpdates((result, version, update) => {
+                let sortBy = {
+                    default: true,
+                    az: false,
+                    za: false
+                }
+
+                const sort = document.querySelector('.pl-sort');
+
+                sort.addEventListener('click', () => {
+                    userinterface('Sort', `
+                    <div>
+                        <input type="radio" class="pl-radio" name="sortOption" ${sortBy.default ? 'checked' : ''}>
+                        <span>Default</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="pl-radio" name="sortOption" ${sortBy.az ? 'checked' : ''}>
+                        <span>A-Z</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="pl-radio" name="sortOption" ${sortBy.za ? 'checked' : ''}>
+                        <span>Z-A</span>
+                    </div>
+                    `);
+
+                    document.querySelectorAll('.pl-radio').forEach((radio, index) => {
+                        radio.addEventListener('click', () => {
+                            for (let i in sortBy) {
+                                sortBy[i] = false;
+                            }
+
+                            switch (index) {
+                                case 0:
+                                    sortBy.default = true;
+                                    break;
+                                case 1:
+                                    sortBy.az = true;
+                                    break;
+                                case 2:
+                                    sortBy.za = true;
+                                    break;
+                                default:
+                                    userinterface('An error occured', `Couldn't turn '${radio.nextElementSibling.textContent}' on — Option number: ${index + 1}`);
+                            }
+
+                            const buttons = document.querySelectorAll('.lib-button');
+                            const buttonsArray = Array.from(buttons);
+
+                            buttonsArray.sort((a, b) => {
+                                if (sortBy.az) {
+                                    return a.innerText.localeCompare(b.innerText);
+                                } else if (sortBy.za) {
+                                    return b.innerText.localeCompare(a.innerText);
+                                } else {
+                                    return prompts.findIndex(prompt => prompt.name === a.innerText) - prompts.findIndex(prompt => prompt.name === b.innerText);
+                                }
+                            });
+
+                            buttons.forEach(btn => {
+                                btn.parentNode.removeChild(btn);
+                            });
+
+                            const container = document.getElementById('pl-all-buttons');
+
+                            buttonsArray.forEach(btn => {
+                                container.appendChild(btn);
+                            });
+                        });
+                    });
+                });
+
+                checkForUpdates((result, version) => {
                     if (result) {
                         userinterface('New Update Found', `
-                        <div class="pl-update-container">
+                        <div class="pl-popup-container">
                             <div>
                                 <div>Current version: ${GM_info.script.version}</div>
                                 <div>Update version: ${version}</div>
                                 <h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" style="margin: 10px 0 10px 0;">Installation Guide:</h2>
-                                <ol>
-                                    <li>Go to <b>chatgpt_prompt_library.js</b>.<li>
+                                <ol class="pl-list">
+                                    <li>Go to <b>chatgpt_prompt_library.js</b>.</li>
                                     <li>Click on "<b>Copy raw file</b>", on the top, right of the script.</li>
-                                    <li>Go to the <b>Tampermonkey dashboard<b>.</li>
+                                    <li>Go to the <b>Tampermonkey dashboard</b>.</li>
                                     <li>Click on <b>ChatGPT Prompt Library</b>.</li>
                                     <li>Select everything.</li>
                                     <li>Paste the copied script.</li>
@@ -372,9 +453,9 @@
                     const version = parseFloat(res.match(/\/\/\s+@version\s+(\w.*)$/m)[1]);
 
                     if (version > GM_info.script.version) {
-                        callback(true, version, res);
+                        callback(true, version);
                     } else {
-                        callback(false, version, res);
+                        callback(false, version);
                     }
                 },
                 onerror: error => {
@@ -421,6 +502,8 @@
                     box.remove();
                 }
             });
+
+            return box;
         }
     }, 2000);
 
@@ -457,10 +540,19 @@
     #pl-search-zone input:focus {
         border-color: #2465d8;
     }
-    .pl-update-container {
+    .pl-popup-container {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+    }
+    .pl-list {
+        list-style: auto;
+        padding: 0 0 0 calc(${parseInt(cssVars.primaryNumber) + (parseInt(cssVars.secondaryNumber) / 2.5)}px * 2);
+    }
+    .pl-sort-options {
+        display: flex;
+        flex-direction: column;
+        gap: ${cssVars.secondaryNumber};
     }
     `);
 })();
