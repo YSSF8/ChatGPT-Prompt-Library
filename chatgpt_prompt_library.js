@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      2.0
+// @version      2.1
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -201,7 +201,7 @@
                 }
 
                 menuBtn.click();
-                userinterface(`Prompt Library <span id="pl-version">V${GM_info.script.version}</span>`, `
+                userinterface(`Prompt Library <span class="pl-tag">V${GM_info.script.version}</span>`, `
                 <div id="pl-search-zone">
                     <input type="text" placeholder="Search" class="m-0 w-full resize-none border-0 bg-transparent p-0 pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:pr-12 pl-3 md:pl-0">
                     <button class="btn relative btn-neutral pl-filter" title="Filter your search results">
@@ -231,6 +231,9 @@
                 function addEventListenersToButtons() {
                     document.querySelectorAll('.lib-button').forEach(btn => {
                         btn.addEventListener('click', () => {
+                            let newBtn = btn.cloneNode(true);
+                            btn.parentNode.replaceChild(newBtn, btn);
+
                             if (description) {
                                 description.remove();
                                 description = null;
@@ -315,6 +318,7 @@
 
                 addEventListenersToButtons();
 
+                let popupWidth = 300;
                 let filterLog = {
                     matchCase: false,
                     matchRegex: false,
@@ -335,7 +339,7 @@
                         <input type="checkbox" class="pl-checkbox" id="descriptionSearch" ${filterLog.descriptionSearch ? 'checked' : ''}>
                         <span>Description Search</span>
                     </div>
-                    `);
+                    `, popupWidth);
 
                     document.querySelectorAll('.pl-checkbox').forEach(checkbox => {
                         checkbox.addEventListener('click', () => {
@@ -366,7 +370,7 @@
                         <input type="radio" class="pl-radio" name="sortOption" ${sortBy.za ? 'checked' : ''}>
                         <span>Z-A</span>
                     </div>
-                    `);
+                    `, popupWidth);
 
                     document.querySelectorAll('.pl-radio').forEach((radio, index) => {
                         radio.addEventListener('click', () => {
@@ -464,13 +468,13 @@
             });
         }
 
-        function userinterface(title = 'New Title', content = 'New Content') {
+        function userinterface(title = 'New Title', content = 'New Content', width = 680) {
             const box = document.createElement('div');
             box.classList.add('absolute', 'inset-0');
             box.innerHTML = `
             <div data-state="open" class="fixed inset-0 bg-gray-300/70 dark:bg-gray-600/70" style="pointer-events: auto;">
                 <div class="grid-cols-[10px_1fr_10px] grid h-full w-full grid-rows-[minmax(10px,_1fr)_auto_minmax(10px,_1fr)] md:grid-rows-[minmax(20px,_1fr)_auto_minmax(20px,_1fr)] overflow-y-auto">
-                    <div role="dialog" id="radix-:Rkdm:" aria-describedby="radix-:RkdmH2:" aria-labelledby="radix-:RkdmH1:" data-state="open" class="relative col-auto col-start-2 row-auto row-start-2 w-full rounded-lg text-left shadow-xl transition-all left-1/2 -translate-x-1/2 bg-white dark:bg-gray-900 md:max-w-[680px]" tabindex="-1" style="pointer-events: auto;">
+                    <div role="dialog" id="radix-:Rkdm:" aria-describedby="radix-:RkdmH2:" aria-labelledby="radix-:RkdmH1:" data-state="open" class="relative col-auto col-start-2 row-auto row-start-2 w-full rounded-lg text-left shadow-xl transition-all left-1/2 -translate-x-1/2 bg-white dark:bg-gray-900 md:max-w-[680px]" tabindex="-1" style="pointer-events: auto; width: ${width}px;">
                         <div class="px-4 pb-4 pt-5 sm:p-6 flex items-center justify-between border-b border-black/10 dark:border-white/10">
                             <div class="flex">
                                 <div class="flex flex-col gap-1 text-center sm:text-left">
@@ -520,7 +524,7 @@
         padding: ${cssVars.primaryNumber};
         box-shadow: 0 0 ${cssVars.secondaryNumber} ${-parseInt(cssVars.secondaryNumber) + 4}px #000;
     }
-    #pl-version {
+    .pl-tag {
         background-color: #fce7a4;
         border-radius: ${cssVars.secondaryNumber};
         padding: ${parseInt(cssVars.secondaryNumber) - 2}px;
@@ -535,7 +539,7 @@
     #pl-search-zone input {
         padding: ${cssVars.primaryNumber};
         border: 1px solid rgb(217, 217, 227);
-        border-radius: ${cssVars.secondaryNumber};
+        border-radius: ${cssVars.primaryNumber};
     }
     #pl-search-zone input:focus {
         border-color: #2465d8;
