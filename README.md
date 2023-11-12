@@ -33,6 +33,7 @@ After installing the script, navigate to [ChatGPT](https://chat.openai.com). You
 - **DadJokes**: Facilitates the generation of dad jokes by ChatGPT.
 - **OneGPT**: ChatGPT will respond to your inquiries with utmost brevity.
 - **GamingGPT**: ChatGPT serves as your optimal gaming partner, enhancing your gaming experience
+- **ComparisonGPT**: ChatGPT will furnish comprehensive tables for comparative analysis
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
