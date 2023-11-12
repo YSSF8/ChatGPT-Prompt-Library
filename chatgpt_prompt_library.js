@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      2.1
+// @version      2.2
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -13,9 +13,23 @@
 (function () {
     'use strict';
 
-    setTimeout(() => {
+    function trySelectElement(selector, callback, timeout = 500) {
+        const element = document.querySelector(selector);
+
+        if (element) {
+            callback(element);
+        } else {
+            setTimeout(() => {
+                trySelectElement(selector, callback);
+            }, timeout);
+        }
+    }
+
+    trySelectElement('button[data-headlessui-state]', () => {
         const menuBtn = document.querySelector('button[data-headlessui-state]');
         menuBtn.addEventListener('click', () => {
+            if (document.getElementById('headlessui-menu-item-:r4lib:')) return;
+
             const library = document.createElement('a');
             library.as = 'button';
             library.className = 'flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 dark:text-white cursor-pointer text-sm hover:bg-gray-100 dark:hover:bg-gray-800';
@@ -36,13 +50,11 @@
             </svg>
             Prompt Library
             `;
-            setTimeout(() => {
-                try {
-                    const menu = document.querySelector('.pb-1\\.5');
-                    menu.insertBefore(library, menu.firstElementChild);
-                } catch {
-                    return;
-                }
+
+            trySelectElement('.pb-1\\.5', () => {
+                const menu = document.querySelector('.pb-1\\.5');
+                if (!menu) return;
+                menu.insertBefore(library, menu.firstElementChild);
             }, 200);
 
             library.addEventListener('click', () => {
@@ -192,6 +204,11 @@
                         name: 'GamingGPT',
                         prompt: `From now on your name is "GamingGPT", you're going to help me with gaming, whether to compare games (comparison always in tables), or advises for the game itself, or teach me the basics of a specific game (e.g, Minecraft's basics: Mine a tree, get its wood, open the inventory, turn them into planks by putting them in the "Crafting" section of the inventory, put 4x4 planks in the "Crafting" section to get a crafting table, etc.). Got it?`,
                         description: 'ChatGPT serves as your optimal gaming partner, enhancing your gaming experience'
+                    },
+                    {
+                        name: 'ComparisonGPT',
+                        prompt: `From now on your name is "ComparisonGPT," you're gonna provide comparison of the content I ask you to compare, the comparison should be in a detailed table, also suggest the best choice based on the provided table by you. Got it?`,
+                        description: 'ChatGPT will furnish comprehensive tables for comparative analysis'
                     }
                 ];
 
@@ -259,7 +276,7 @@
                                 }
 
                                 let desc = btn.getAttribute('data-desc');
-                                if (filterLog.descriptionSearch) {
+                                if (filterLog.descriptionSearch && searchValue) {
                                     desc = desc.replace(new RegExp(searchValue, `g${filterLog.matchCase ? '' : 'i'}`), match => `<mark>${match}</mark>`);
                                 }
                                 description.innerHTML = desc;
@@ -299,7 +316,7 @@
                             buttonsHTML = '<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>';
                         } else {
                             for (let i = 0; i < filteredPrompts.length; i++) {
-                                let highlightedName = filteredPrompts[i].name.replace(new RegExp(searchValue, 'gi'), match => `<mark>${match}</mark>`);
+                                let highlightedName = searchValue ? filteredPrompts[i].name.replace(new RegExp(searchValue, 'gi'), match => `<mark>${match}</mark>`) : filteredPrompts[i].name;
                                 buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${highlightedName}</button>`;
                             }
                         }
@@ -428,12 +445,12 @@
                                 <h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" style="margin: 10px 0 10px 0;">Installation Guide:</h2>
                                 <ol class="pl-list">
                                     <li>Go to <b>chatgpt_prompt_library.js</b>.</li>
-                                    <li>Click on "<b>Copy raw file</b>", on the top, right of the script.</li>
-                                    <li>Go to the <b>Tampermonkey dashboard</b>.</li>
-                                    <li>Click on <b>ChatGPT Prompt Library</b>.</li>
-                                    <li>Select everything.</li>
-                                    <li>Paste the copied script.</li>
-                                    <li>Save the changes.</li>
+                                    <li>Click the "<b>Copy raw file</b>" button located at the top right of the script.</li>
+                                    <li>Access the Tampermonkey dashboard.</li>
+                                    <li>Locate and select <b>ChatGPT Prompt Library</b>.</li>
+                                    <li>Highlight the entire content.</li>
+                                    <li>Paste the previously copied script.</li>
+                                    <li>Save the modifications.</li>
                                 </ol>
                             </div>
                             <button class="btn relative btn-neutral" id="pl-install-updt">Install Update</div>
