@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT Prompt Library
 // @namespace    https://github.com/YSSF8/ChatGPT-Prompt-Library
-// @version      2.2
+// @version      2.3
 // @description  A repository replete with ChatGPT prompts.
 // @author       YSSF
 // @match        https://chat.openai.com/*
@@ -10,7 +10,7 @@
 // @grant        GM.xmlHttpRequest
 // ==/UserScript==
 
-(function () {
+(() => {
     'use strict';
 
     function trySelectElement(selector, callback, timeout = 500) {
@@ -25,8 +25,8 @@
         }
     }
 
-    trySelectElement('button[data-headlessui-state]', () => {
-        const menuBtn = document.querySelector('button[data-headlessui-state]');
+    trySelectElement('.gizmo .gizmo\\:p-1', () => {
+        const menuBtn = document.querySelector('.gizmo .gizmo\\:p-1');
         menuBtn.addEventListener('click', () => {
             if (document.getElementById('headlessui-menu-item-:r4lib:')) return;
 
@@ -51,8 +51,8 @@
             Prompt Library
             `;
 
-            trySelectElement('.pb-1\\.5', () => {
-                const menu = document.querySelector('.pb-1\\.5');
+            trySelectElement('[role="menu"] nav', () => {
+                const menu = document.querySelector('[role="menu"] nav');
                 if (!menu) return;
                 menu.insertBefore(library, menu.firstElementChild);
             }, 200);
@@ -257,14 +257,19 @@
                             }
 
                             const mainInput = document.getElementById('prompt-textarea');
-                            mainInput.value = prompts.find(prompt => prompt.name === btn.innerText).prompt.replace(/^[ \t]+/gm, '').trim();
 
-                            const event = new Event('input', { bubbles: true });
-                            mainInput.dispatchEvent(event);
+                            try {
+                                mainInput.value = prompts.find(prompt => prompt.name === btn.innerText).prompt.replace(/^[ \t]+/gm, '').trim();
 
-                            document.querySelector('button[data-prompt-library="close-button"]').click();
-                            mainInput.scrollY = mainInput.scrollHeight;
-                            mainInput.focus();
+                                const event = new Event('input', { bubbles: true });
+                                mainInput.dispatchEvent(event);
+
+                                document.querySelector('button[data-prompt-library="close-button"]').click();
+                                mainInput.scrollY = mainInput.scrollHeight;
+                                mainInput.focus();
+                            } catch (error) {
+                                userinterface('An error occured', error.message, 400);
+                            }
                         });
 
                         btn.addEventListener('mouseover', () => {
@@ -316,7 +321,7 @@
                             buttonsHTML = '<h2 id="radix-:RkdmH1:" as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200" align="center">No results found!</h2>';
                         } else {
                             for (let i = 0; i < filteredPrompts.length; i++) {
-                                let highlightedName = searchValue ? filteredPrompts[i].name.replace(new RegExp(searchValue, 'gi'), match => `<mark>${match}</mark>`) : filteredPrompts[i].name;
+                                let highlightedName = searchValue ? filteredPrompts[i].name.replace(new RegExp(searchValue, `g${filterLog.matchCase ? '' : 'i'}`), match => `<mark>${match}</mark>`) : filteredPrompts[i].name;
                                 buttonsHTML += `<button class="btn lib-button relative btn-neutral" data-desc="${filteredPrompts[i].description}" style="margin-right: 5px; margin-bottom: 5px;">${highlightedName}</button>`;
                             }
                         }
@@ -406,7 +411,7 @@
                                     sortBy.za = true;
                                     break;
                                 default:
-                                    userinterface('An error occured', `Couldn't turn '${radio.nextElementSibling.textContent}' on — Option number: ${index + 1}`);
+                                    userinterface('An error occured', `Couldn't turn '${radio.nextElementSibling.textContent}' on — Option number: ${index + 1}`, 400);
                             }
 
                             const buttons = document.querySelectorAll('.lib-button');
@@ -479,8 +484,8 @@
                         callback(false, version);
                     }
                 },
-                onerror: error => {
-                    userinterface('Couldn\'t check for updates', error.error);
+                onerror: response => {
+                    userinterface('Couldn\'t check for updates', response.error);
                 }
             });
         }
