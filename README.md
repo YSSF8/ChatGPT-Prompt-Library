@@ -1,5 +1,8 @@
 # ChatGPT Prompt Library
 
+## Note
+We've stopped updating this userscript for some reason, you can check out the chrome/edge [extension](https://github.com/YSSF8/ChatGPT-PRepo) version of this script.
+
 ## Description
 ChatGPT Prompt Library is a versatile collection of prompts designed to enhance your ChatGPT experience. This script transforms ChatGPT into different roles for engaging interactions.
 
